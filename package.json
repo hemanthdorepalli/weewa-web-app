@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/hemanthdorepalli/weewa-web-app.git",
+  "homepage": "git remote add origin https://github.com/hemanthdorepalli/weewa-web-app.git",
   "name": "login",
   "private": true,
   "version": "0.0.0",
