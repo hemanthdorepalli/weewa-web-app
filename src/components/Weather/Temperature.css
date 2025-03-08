@@ -1,0 +1,595 @@
+/* Base styles with Bootstrap overrides */
+.weather-container {
+    padding: 1rem;
+    margin: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+   /* Controls section */
+   .controls-container {
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .controls-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-end;
+    max-width: 1000px;
+    width: 100%;
+  }
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0;
+  }
+  
+  .date-input.form-control,
+  .chart-type-select.form-select {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /* View buttons */
+  .view-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .view-button.btn {
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    border: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .view-button.btn:hover {
+    background: #e0e0e0;
+  }
+  
+  .view-button.btn.active {
+    background: #1890ff;
+    color: white;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    border: none;
+    border-radius: 0;
+    padding: 0.5rem;
+    height: calc(100vh - 250px) !important;
+    min-height: auto;
+    background: #fff;
+    padding-bottom: 2rem;
+  }
+  
+  /* Resize handle */
+  .resize-handle {
+    display: none;
+  }
+  
+  .resize-handle-text {
+    display: none;
+  }
+  
+  /* Loading and error states */
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .error {
+    text-align: center;
+    padding: 2rem;
+    color: #ff4d4f;
+    font-size: 1.1rem;
+  }
+  
+  .error.alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 2rem;
+    min-width: 300px;
+    text-align: center;
+    background-color: #fff3f3;
+    border: 1px solid #ffcdd2;
+  }
+  
+  .error.alert h4 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+  }
+  
+  .error.alert p {
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 767.98px) {
+    .weather-container {
+      padding: 0;
+      margin: 0;
+    }
+  
+    .controls-container {
+      padding: 0.5rem;
+    }
+  
+    .date-input.form-control,
+    .chart-type-select.form-select {
+      max-width: 100%;
+    }
+  
+    .view-buttons {
+      padding: 0.5rem;
+    }
+  
+    .chart-container {
+      height: calc(100vh - 220px) !important;
+      padding-bottom: 3rem;
+    }
+  
+    /* Adjust chart title and toolbox for mobile */
+    :global(.echarts-title) {
+      font-size: 0.875rem !important;
+      padding-top: 1.5rem !important;
+    }
+  
+    :global(.echarts-toolbox) {
+      right: 0.5rem !important;
+      top: 0.5rem !important;
+    }
+  
+    :global(.echarts-legend) {
+      padding-top: 2rem !important;
+    }
+  }
+  
+  /* Tablet styles */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .controls-container {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  
+    .view-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 992px) {
+    .controls-container {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  
+    .view-buttons {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Update view buttons container */
+  .row.mb-4 {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  /* Update columns */
+  .col-12 {
+    padding: 0;
+  }
+
+  /* Remove unnecessary margins */
+  .row {
+    margin: 0 !important;
+  }
+
+  /* Add these styles to your existing CSS */
+
+  .sri-city-info {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .section-title {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .location-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+
+  .location-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .location-card h3 {
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .details {
+    margin-bottom: 1rem;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .detail-label {
+    color: #666;
+    text-transform: capitalize;
+  }
+
+  .detail-value {
+    color: #333;
+    font-weight: 500;
+  }
+
+  .view-map-btn {
+    width: 100%;
+    padding: 0.5rem;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .view-map-btn:hover {
+    background: #40a9ff;
+  }
+
+  .map-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+  }
+
+  .map-modal {
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .close-map-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .sri-city-info {
+      padding: 0.5rem;
+    }
+
+    .locations-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .map-overlay {
+      padding: 1rem;
+    }
+
+    .location-card {
+      padding: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Add these new styles */
+  .location-info {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .view-location-btn {
+    padding: 0.5rem 1rem;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 38px;
+    white-space: nowrap;
+  }
+
+  .view-location-btn:hover {
+    background: #40a9ff;
+  }
+
+  .view-location-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  .location-popup {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .location-popup h6 {
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-popup p {
+    margin: 0.25rem 0;
+    color: #666;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .map-overlay {
+      padding: 1rem;
+    }
+
+    .view-location-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .date-range-picker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .date-separator {
+    color: #666;
+    font-weight: 500;
+  }
+
+  .date-range-picker .form-control {
+    min-width: 140px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .date-range-picker {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .date-separator {
+      display: none;
+    }
+    
+    .date-range-picker .form-control {
+      width: 100%;
+    }
+  }
+
+  .view-type-select {
+    min-width: 150px;
+  }
+
+  .control-group {
+    margin-bottom: 1rem;
+  }
+
+  .control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .echarts-for-react {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .view-button.active {
+    background: rgba(24, 144, 255, 0.8) !important;
+    border-color: rgba(24, 144, 255, 0.8) !important;
+  }
+
+  .view-button:hover {
+    opacity: 0.9;
+  }
+
+  .period-select {
+    min-width: 150px;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .control-group label {
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .control-group {
+      width: 100%;
+    }
+    
+    .period-select {
+      width: 100%;
+    }
+  }
+
+  .selected-period {
+    padding: 0.5rem;
+    background: #f0f2f5;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .selected-period strong {
+    color: #1890ff;
+    margin-left: 0.5rem;
+  }
+
+  .date-range-picker {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .date-range-picker .form-control {
+    min-width: 120px;
+  }
+
+  @media (max-width: 768px) {
+    .date-range-picker {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .date-range-picker .form-control {
+      width: 100%;
+    }
+  }
+
+  .date-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .date-label {
+    color: #666;
+    font-size: 0.8rem;
+  }
+
+  .date-error {
+    color: #ff4d4f;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .form-control.is-invalid {
+    border-color: #ff4d4f;
+  }
+
+  .date-range-picker {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .date-separator {
+    color: #666;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .date-range-picker {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .date-separator {
+      display: none;
+    }
+    
+    .date-input-wrapper {
+      width: 100%;
+    }
+    
+    .date-input-wrapper .form-control {
+      width: 100%;
+    }
+  }

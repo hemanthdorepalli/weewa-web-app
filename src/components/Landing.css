@@ -1,0 +1,1434 @@
+/* General Page Style */
+.landing-container {
+  font-family: 'Inter', sans-serif;
+  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #ffffff;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Main Container */
+.landing-weather-dashboardd {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 1500px;
+  min-height: 80vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  gap: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  overflow: hidden;
+  /* padding: 10px;
+  margin-bottom: -20px; */
+}
+.landing-loading,
+.landing-error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-error-message {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 10px;
+  margin: 20px;
+}
+
+/* Left Section */
+.landing-left-section {
+  width: 35%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 20px;
+  background: linear-gradient(165deg, rgb(78, 135, 149) 0%, rgb(65, 112, 124) 100%);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+}
+
+/* Location Info */
+.landing-location-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.landing-location-info:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.landing-location-icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+  animation: pulse 2s infinite;
+  /* padding: 10px; */
+  /* margin-top: 10PX; */
+}
+
+.landing-location-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.landing-location-text h3 {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.landing-temperature-display {
+    width: 100%;
+    position: relative;
+    padding: 0px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Temperature Gauge */
+.landing-temp-gauge {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+}
+
+.landing-temp-indicator {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.landing-temp-indicator svg {
+  width: 100%;
+  height: 200px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.landing-temp-value {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.landing-weather-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #E8EDF1;
+  font-size: 1rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .landing-temp-gauge {
+    max-width: 290px;
+    padding: 15px;
+  }
+
+  .landing-temp-value {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-temp-gauge {
+    max-width: 250px;
+    padding: 10px;
+  }
+
+  .landing-temp-indicator {
+    padding: 5px;
+  }
+
+  .landing-temp-value {
+    font-size: 2.2rem;
+    margin: 10px 0;
+  }
+
+  .landing-weather-info {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+}
+
+/* Temperature Min-Max */
+.landing-temp-minmax {
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.landing-high-low {
+  padding: 14px 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.landing-high-low:hover {
+  transform: translateX(5px);
+}
+
+.landing-high-low span {
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.landing-high-low .landing-temp {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.landing-high {
+  background: linear-gradient(90deg, 
+      rgba(255, 99, 71, 0.8), 
+      rgba(255, 99, 71, 0.4));
+  border: 1px solid rgba(255, 99, 71, 0.3);
+}
+
+.landing-low {
+  background: linear-gradient(90deg, 
+      rgba(144, 238, 144, 0.8), 
+      rgba(144, 238, 144, 0.4));
+  border: 1px solid rgba(144, 238, 144, 0.3);
+}
+@media screen and (max-width: 600px) {
+  .landing-temp-minmax {
+    padding: 0 10px;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .landing-high-low {
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+
+  .landing-high-low span {
+    font-size: 12px;
+  }
+
+  .landing-high-low .landing-temp {
+    font-size: 16px;
+  }
+  .landing-weather-info {
+    margin-bottom: 5px; /* Reduce space below this container */
+  }
+
+  .landing-temp-minmax {
+    margin-top: 5px; /* Reduce space above this container */
+  }
+  .landing-weather-info {
+    padding-bottom: 5px; /* Reduce padding at the bottom */
+  }
+}
+/* Mountain Background */
+.landing-mountain-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.15) 100%);
+  clip-path: polygon(0% 100%, 25% 40%, 50% 70%, 75% 30%, 100% 60%, 100% 100%);
+  z-index: 0;
+  text-decoration: none;
+  color: white;
+}
+.landing-attribution {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  margin-top:5px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0. .2s ease;
+}
+
+.landing-attribution:hover {
+  color: white;
+  text-decoration: underline;
+}
+/* Right Section */
+.landing-right-section {
+  width: 70%;
+  padding: 20px;
+  padding-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-image: initial;
+  
+}
+.landing-today-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.landing-today-heading,
+.landing-highlights-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.landing-today-heading {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.landing-today-date {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight:700;
+}
+.landing-forecast-container {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  color: white;
+  position: relative;
+}
+
+.landing-forecast-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.landing-forecast-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.landing-forecast-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.landing-forecast-card:hover {
+  transform: translateY(-5px);
+}
+
+.landing-forecast-time {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.landing-forecast-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+}
+
+.landing-forecast-temp {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.landing-forecast-wind {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.landing-wind-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .landing-forecast-cards {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .landing-forecast-card {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+.landing-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-highlight-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 250px;
+  position: relative;
+  overflow: visible !important;
+}
+
+.landing-highlight-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8); 
+  padding-right: 35px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* UV Index Styles */
+.landing-uv-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 120px;
+}
+
+.landing-uv-meter {
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  top: 0;
+}
+
+.landing-uv-background {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 16;
+  stroke-linecap: round;
+}
+
+.landing-uv-progress {
+  fill: none;
+  stroke: #FF6B6B;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.landing-uv-value {
+  position: absolute;
+  bottom: 0;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.landing-wind-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.landing-wind-direction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.landing-compass {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 10px 0;
+}
+
+.landing-compass-mark {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.landing-compass-mark.landing-n { top: 5px; left: 50%; transform: translateX(-50%); }
+.landing-compass-mark.landing-e { right: 5px; top: 50%; transform: translateY(-50%); }
+.landing-compass-mark.landing-s { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.landing-compass-mark.landing-w { left: 5px; top: 50%; transform: translateY(-50%); }
+
+.landing-compass-arrow {
+  position: absolute;
+  width: 4px;
+  height: 50px;
+  background: linear-gradient(to top, #FFD700, transparent);
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+}
+
+.landing-arrow-head {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #FFD700;
+}
+
+.landing-wind-direction-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFD700;
+}
+
+.landing-wind-direction-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Sunrise & Sunset Styles */
+.landing-sunrise-sunset-card {
+  padding: 20px;
+}
+
+.landing-sunrise-sunset-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.landing-sun-times {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.landing-sun-times {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.landing-time-display {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.landing-sun-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.landing-sun-half {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.landing-sun-half.landing-light {
+  top: 0;
+  background-color: #FFD700;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.landing-sun-half.landing-dark {
+  bottom: 0;
+  background-color: #333;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.landing-sun-rays {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #666;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Highlight Cards Common Styles */
+
+.landing-highlight-card1 {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  position: relative;
+  overflow: visible !important;
+}
+
+.landing-highlight-card1 h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8); 
+  padding-right: 35px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  
+}
+
+.landing-metric-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.landing-metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.landing-metric-value .landing-value {
+  font-size: 42px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.landing-metric-value .landing-unit {
+  font-size: 24px;
+  color: #ffffff;
+  margin-left: 2px;
+}
+
+.landing-metric-status {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Vertical Slider Styles */
+.landing-vertical-slider {
+  width: 8px;
+  height: 100px;
+  background: #F0F0F0;
+  border-radius: 4px;
+  position: relative;
+  margin-left: 20px;
+}
+
+.landing-slider-track {
+  width: 100%;
+  height: 100%;
+  background: #3b3a3a;
+  border-radius: 4px;
+  position: absolute;
+}
+
+.landing-slider-thumb {
+  width: 16px;
+  height: 16px;
+  background: #0e0d0d;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific positioning for different cards */
+.landing-highlight-card1:nth-child(1) .landing-slider-thumb {
+  bottom: 12%;
+}
+
+.landing-highlight-card1:nth-child(3) .landing-slider-thumb {
+  top: 75%;
+}
+
+/* Update the vertical slider colors for wind speed */
+.landing-highlight-card1:nth-child(4) .landing-slider-track,  /* Humidity card */
+.landing-highlight-card1:last-child .landing-slider-track {    /* Wind speed card */
+  background: linear-gradient(to top, 
+    #4CACBC 0%, 
+    #FFD700 50%, 
+    #FF6B6B 100%
+  );
+  opacity: 0.8;
+}
+
+.landing-highlight-card1:nth-child(4) .landing-slider-thumb,   /* Humidity card */
+.landing-highlight-card1:last-child .landing-slider-thumb {    /* Wind speed card */
+  background: #ffffff;
+  border: 2px solid #4CACBC;
+  box-shadow: 0 0 10px rgba(76, 172, 188, 0.5);
+}
+
+/* Update the value color for both cards */
+.landing-highlight-card1:nth-child(4) .landing-value,          /* Humidity card */
+.landing-highlight-card1:last-child .landing-value {           /* Wind speed card */
+  color: #ffffff;
+}
+/* Humidity Styles */
+.landing-humidity-info,
+.landing-visibility-info,
+.landing-air-quality-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.landing-humidity-value,
+.landing-visibility-value,
+.landing-aqi-value {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.landing-humidity-value span,
+.landing-visibility-value span {
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.landing-humidity-status,
+.landing-visibility-status,
+.landing-aqi-status {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .landing-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .landing-highlight-card {
+    padding: 15px;
+  }
+}
+.landing-weather-info {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.landing-cloud-icon {
+  width: 48px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  position: relative;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.landing-cloud-icon:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 6px;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.landing-wave-icon {
+  width: 48px;
+  height: 12px;
+  background: linear-gradient(90deg, #ffd700 50%, transparent 50%);
+  background-size: 10px 100%;
+  border-radius: 6px;
+  opacity: 0.8;
+}
+
+.landing-weather-info p {
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.landing-compass-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: compassPulse 2s infinite;
+}
+
+.landing-compass-arrow {
+    position: absolute;
+    width: 3px;
+    height: 45px;
+    background: linear-gradient(to bottom, #FFD700, rgba(255, 215, 0, 0.5));
+    transform-origin: center;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    top: 50%;
+    left: 50%;
+    margin-top: -22.5px;
+    margin-left: -1.5px;
+}
+
+.landing-arrow-head {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #FFD700;
+}
+
+.landing-wind-direction {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    margin-top: 10px !important;
+}
+
+@keyframes compassPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.landing-sun-time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.landing-visibility-value{
+  margin-top: 25px;
+  margin-bottom: 25px;
+ } 
+
+/* Add smooth transitions */
+.landing-highlight-card,
+.landing-highlight-card1 {
+  transition: all 0.3s ease;
+}
+
+/* Fix for chart responsiveness */
+.landing-recharts-responsive-container {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.landing-weather-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.landing-loading-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  animation: fadeInOut 2s infinite;
+  z-index: 1000;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+/* styles for dashboard button */
+.landing-dashboard-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.landing-dashboard-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.landing-dashboard-button span {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.landing-dashboard-button .landing-arrow {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.landing-dashboard-button:hover .landing-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive styles for the button */
+@media screen and (max-width: 768px) {
+  .landing-dashboard-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+  }
+
+  .landing-dashboard-button span {
+    font-size: 14px;
+  }
+
+  .landing-dashboard-button .landing-arrow {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .landing-dashboard-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 18px;
+  }
+}
+.info-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: help;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.landing-highlight-card:hover .info-icon,
+.landing-highlight-card1:hover .info-icon,
+.landing-forecast-container:hover .info-icon,
+.landing-sunrise-sunset-card:hover .info-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-icon svg {
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+.info-icon:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.info-icon:hover svg {
+  color: #ffffff;
+}
+
+/* Enhanced Tooltip Styles */
+.info-icon .tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: -12px;
+  right: 38px;
+  min-width: 220px;
+  max-width: 280px;
+  background: #0e0d0d;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.tooltip-content {
+  position: relative;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.info-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tooltip Arrow */
+.info-icon .tooltip::before {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 16px;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, rgba(40, 44, 52, 0.98), rgba(30, 33, 39, 0.98));
+  transform: rotate(45deg);
+  border-radius: 2px;
+  box-shadow: 4px -4px 15px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+/* Special Positioning for Different Card Types */
+.landing-forecast-container .info-icon .tooltip {
+  top: 40px;
+  right: 0;
+  transform: translateY(-10px);
+}
+
+.landing-forecast-container .info-icon:hover .tooltip {
+  transform: translateY(0);
+}
+
+.landing-forecast-container .info-icon .tooltip::before {
+  top: -7px;
+  right: 12px;
+  transform: rotate(135deg);
+}
+
+.landing-sunrise-sunset-card .info-icon .tooltip,
+.landing-highlight-card1 .info-icon .tooltip {
+  top: 40px;
+  right: -20px;
+  transform: translateY(-10px);
+}
+
+.landing-sunrise-sunset-card .info-icon:hover .tooltip,
+.landing-highlight-card1 .info-icon:hover .tooltip {
+  transform: translateY(0);
+}
+
+.landing-sunrise-sunset-card .info-icon .tooltip::before,
+.landing-highlight-card1 .info-icon .tooltip::before {
+  top: -7px;
+  right: 32px;
+  transform: rotate(135deg);
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .info-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .info-icon .tooltip {
+    min-width: 200px;
+    max-width: 260px;
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+}
+/* Comprehensive Mobile Styles */
+@media screen and (max-width: 1024px) {
+  .landing-container {
+    padding: 10px;
+  }
+
+  .landing-weather-dashboardd {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .landing-right-section {
+    padding: 20px;
+  }
+
+  .landing-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .landing-container {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .landing-weather-dashboardd {
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 0;
+    padding: 10px;
+    gap: 15px;
+    margin: 0;
+  }
+
+  .landing-left-section {
+    width: 100%;
+    min-width: unset;
+    order: 1;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .landing-right-section {
+    width: 100%;
+    order: 2;
+    padding: 15px;
+  }
+
+  .landing-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Temperature Display Adjustments */
+  .landing-temp-gauge {
+    max-width: 280px;
+  }
+
+  .landing-temp-value {
+    font-size: 2.8rem;
+  }
+
+  .landing-temp-minmax {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 15px;
+  }
+
+  /* Forecast Section Adjustments */
+  .landing-forecast-container {
+    margin: 15px 0;
+    padding: 15px;
+  }
+  
+
+  .landing-forecast-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -5px;
+  }
+
+  .landing-forecast-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .landing-forecast-card {
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  /* Highlight Cards Adjustments */
+  .landing-highlight-card,
+  .landing-highlight-card1 {
+    min-height: 200px;
+    padding: 15px;
+    position: relative;
+  }
+
+  /* Weather Info Adjustments */
+  .landing-weather-info {
+    margin-bottom: 20px;
+  }
+
+  .landing-weather-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Location Info Adjustments */
+  .landing-location-info {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Today Info Adjustments */
+  .landing-today-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .landing-today-heading {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .landing-today-date {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .landing-weather-dashboardd {
+    padding: 8px;
+  }
+
+  .landing-left-section,
+  .landing-right-section {
+    padding: 12px;
+  }
+
+  .landing-temp-gauge {
+    max-width: 290px;
+  }
+
+  .landing-temp-value {
+    font-size: 2.4rem;
+  }
+
+  .landing-forecast-card {
+    min-width: 100px;
+    padding: 10px;
+  }
+
+  .landing-highlight-card,
+  .landing-highlight-card1 {
+    min-height: 180px;
+    padding: 12px;
+  }
+
+  .landing-weather-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Adjust metric values for smaller screens */
+  .landing-metric-value .landing-value {
+    font-size: 32px;
+  }
+
+  .landing-metric-value .landing-unit {
+    font-size: 18px;
+  }
+
+  /* Adjust compass size */
+  .landing-compass {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Adjust UV gauge size */
+  .landing-uv-gauge {
+    height: 100px;
+  }
+
+  .landing-uv-value {
+    font-size: 36px;
+  }
+
+  /* Adjust sunrise/sunset times */
+  .landing-time-display {
+    font-size: 16px;
+  }
+}
+
+/* Portrait-specific adjustments */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .landing-container {
+    min-height: 100vh;
+  }
+
+  .landing-weather-dashboardd {
+    min-height: 100vh;
+  }
+
+  .landing-highlights-grid {
+    gap: 12px;
+  }
+
+  .landing-highlight-card,
+  .landing-highlight-card1 {
+    min-height: 160px;
+  }
+}
+
+/* Landscape-specific adjustments */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .landing-container {
+    padding: 5px;
+  }
+
+  .landing-weather-dashboardd {
+    gap: 10px;
+  }
+
+  .landing-left-section {
+    padding: 15px;
+  }
+
+  .landing-temp-gauge {
+    max-width: 250px;
+  }
+
+  .landing-highlight-card,
+  .landing-highlight-card1 {
+    min-height: 150px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .landing-forecast-cards {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .landing-highlight-card:active,
+  .landing-highlight-card1:active {
+    transform: scale(0.98);
+  }
+
+  .landing-dashboard-button:active {
+    transform: translateY(1px);
+  }
+}

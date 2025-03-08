@@ -1,0 +1,551 @@
+/* General Layout */
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Column with background image */
+.left-column {
+    width: 55%;
+    background-image: url("../assets/WEEWE.png"); /* Set the background image for the left column */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Set position relative for the overlay */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Right Column with blurred overlay */
+.right-column {
+    flex-grow: 1;
+    background-image: url("../assets/WEEWE.png"); /* Set the background image for the right column */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Adding blur effect */
+}
+
+/* Add the blurred overlay */
+.right-column::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Translucent dark background */
+    backdrop-filter: blur(8px); /* Add blur effect */
+    z-index: -1; /* Send the overlay behind the content */
+}
+
+/* Login Box */
+.login-box {
+    width: 350px;
+    min-height: fit-content;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title with Animation */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeInOut 6s steps(6);
+}
+
+/* Animation for title change */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        color: #00bfff; /* Weather: Bright Sky Blue */
+    }
+    16% {
+        opacity: 1;
+        color: #00bfff; /* Weather: Bright Sky Blue */
+    }
+    33% {
+        opacity: 0;
+        color: #ffff00; /* Energy: Bright Yellow */
+    }
+    50% {
+        opacity: 1;
+        color: #ffff00; /* Energy: Bright Yellow */
+    }
+    66% {
+        opacity: 0;
+        color: #32cd32; /* Environment: Bright Lime Green */
+    }
+    83% {
+        opacity: 1;
+        color: #32cd32; /* Environment: Bright Lime Green */
+    }
+    100% {
+        opacity: 0;
+        color: #1e90ff; /* Water: Ocean Blue */
+    }
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Bouncing letters for WEEWE */
+.bouncing-letters {
+    display: inline-block;
+    position: relative;
+}
+
+.letter {
+    display: inline-block;
+    
+}
+
+.letter-1 {
+    color: #00bfff; /* Weather: Sky Blue */
+   
+}
+
+.letter-2 {
+    color: #ffff00; /* Energy: Yellow */
+    
+}
+
+.letter-3 {
+    color: #32cd32; /* Environment: Green */
+    
+}
+
+.letter-4 {
+    color: #1e90ff; /* Water: Ocean Blue */
+   
+}
+
+.letter-5 {
+    color: #98fb98; /* Atmosphere: Pale Green */
+    
+}
+
+
+
+/* Form Group styling */
+.form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Submit Button styling */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, #007bff, #00bfff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #0098cc);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Form Toggle Buttons */
+.form-toggle-buttons {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.form-toggle-buttons a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.form-toggle-buttons a:hover {
+    color: #fff;
+}
+
+.form-toggle-buttons a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.form-toggle-buttons a:hover::after {
+    width: 100%;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .left-column {
+        display: none;
+    }
+
+    .right-column {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .login-box {
+        width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 300px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .form-group input {
+        padding: 0.7rem;
+    }
+}
+
+/* Add these new styles after your existing CSS */
+
+.get-key-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.get-key-section p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.key-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.key-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.key-icon:hover {
+  transform: scale(1.1);
+}
+
+.otp-container {
+  width: 100%;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.separator {
+  text-align: center;
+  color: white;
+  margin: 20px 0;
+  position: relative;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+.password-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Add or update these styles */
+
+.login-form-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.otp-section {
+  width: 100%;
+  margin: 0.8rem 0;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+}
+
+.otp-input {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  caret-color: #fff;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.or-separator {
+  text-align: center;
+  color: #fff;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Update existing styles and add new ones */
+
+.form-group.compact {
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+}
+
+.key-section.compact {
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.key-label {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.key-options {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.key-options img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  opacity: 0.8;
+}
+
+.key-options img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.or-separator {
+  margin: 0.8rem 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.password-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.7rem;
+}
+
+.register-link {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* Remove any conflicting margin/padding from previous styles */
+.login-box {
+  padding: 1.5rem;
+}
+
+.login-form-content {
+  width: 100%;
+}
+
+.resend-otp {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: #1890ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.resend-btn:hover {
+  color: #40a9ff;
+}
+
+.error-message {
+  color: #ff4d4f;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 0.9em;
+}

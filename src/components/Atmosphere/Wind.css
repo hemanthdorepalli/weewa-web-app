@@ -1,0 +1,494 @@
+.wind-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .wind-rose {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wind-info {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wind-info h3 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .wind-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .legend {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+  }
+  
+  .legend h4 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .speed-scale {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .gradient {
+    height: 20px;
+    flex-grow: 1;
+    background: linear-gradient(to right,
+      #313695, #4575b4, #74add1, #abd9e9, #e0f3f8,
+      #ffffbf, #fee090, #fdae61, #f46d43, #d73027, #a50026
+    );
+    border-radius: 4px;
+  }
+  
+  .low, .high {
+    color: #666;
+    font-size: 0.9em;
+    min-width: 60px;
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+  
+  .error.alert {
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .error.alert h4 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+  }
+  
+  .error.alert p {
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  /* Update date picker styles */
+  .date-input {
+    height: 38px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 4px 11px;
+    width: 100%;
+    transition: all 0.3s;
+  }
+  
+  .date-input:hover {
+    border-color: #40a9ff;
+  }
+  
+  .date-input:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    outline: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .wind-container {
+      padding: 10px;
+    }
+  
+    .wind-rose {
+      padding: 10px;
+    }
+  
+    .wind-info {
+      padding: 15px;
+    }
+  }
+
+  /* Add these styles at the top of your existing CSS */
+  .controls-container {
+    padding: 1rem;
+    background: #fff;
+    z-index: 10;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0;
+  }
+
+  .date-input.form-control,
+  .chart-type-select.form-select {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .view-location-btn {
+    padding: 0.5rem 1rem;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 38px;
+    white-space: nowrap;
+  }
+
+  .view-location-btn:hover {
+    background: #40a9ff;
+  }
+
+  .view-location-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .controls-container {
+      padding: 0.5rem;
+    }
+
+    .date-input.form-control,
+    .chart-type-select.form-select {
+      max-width: 100%;
+    }
+
+    .view-location-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* Base styles */
+  .weather-container {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .controls-section {
+    padding: 0.5rem;
+    background: #fff;
+  }
+
+  .controls-container {
+    padding: 0.5rem;
+    background: #fff;
+    z-index: 10;
+  }
+
+  .view-section {
+    padding: 0 0.5rem;
+  }
+
+  .view-buttons {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.5rem;
+    border: none;
+  }
+
+  .chart-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 0; /* Important for flex child */
+  }
+
+  .chart-container {
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  /* Remove scrollbars */
+  body {
+    overflow: hidden;
+  }
+
+  .row, .col-12 {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  /* View buttons */
+  .view-button.btn {
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    border: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .view-button.btn:hover {
+    background: #e0e0e0;
+  }
+
+  .view-button.btn.active {
+    background: #1890ff;
+    color: white;
+  }
+
+  .wind-rose-wrapper {
+    padding: 20px;
+    background: white;
+    position: relative;
+  }
+
+  .wind-rose-chart {
+    height: 700px;
+    position: relative;
+  }
+
+  .wind-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .stat-item {
+    margin: 2px 0;
+  }
+
+
+  .speed-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .speed-color {
+    width: 15px;
+    height: 10px;
+  }
+
+  .component-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .wind-rose-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #34495e;
+  }
+
+  .loading, .error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .chart-type-select {
+    min-width: 150px;
+  }
+
+  .chart-type-select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  /* Map styles */
+  .map-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+  }
+
+  .map-modal {
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .close-map-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .location-popup {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .location-popup h6 {
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-popup p {
+    margin: 0.25rem 0;
+    color: #666;
+  }
+
+  /* Mobile view (below 768px) */
+  @media (max-width: 768px) {
+    .weather-container {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .controls-section {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .view-section {
+      position: sticky;
+      top: 120px;
+      z-index: 19;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .chart-section {
+      height: calc(100vh - 200px);
+      min-height: 400px;
+    }
+
+    body {
+      overflow: auto;
+    }
+
+    .controls-container {
+      padding: 0.5rem;
+    }
+
+    .d-flex.flex-wrap {
+      gap: 0.5rem !important;
+    }
+
+    .view-buttons {
+      padding: 0.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+  }
+
+  /* Desktop view (above 768px) */
+  @media (min-width: 769px) {
+    .weather-container {
+      height: calc(100vh - 64px);
+      overflow: hidden;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .chart-section {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-container {
+      height: 100%;
+      width: 100%;
+    }
+  }

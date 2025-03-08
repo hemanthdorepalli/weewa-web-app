@@ -1,0 +1,211 @@
+.live-data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.top-row {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1800px;
+    margin: 0;
+}
+
+.bottom-row {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 263px 1fr 1fr 2fr;
+    max-width: 1800px;
+    margin: 0;
+}
+
+.card1 {
+    background: white;
+    overflow: hidden;
+    height: 250px;
+    min-height: 250px;
+    width: 100%;
+}
+
+.card2 {
+    background: white;
+    overflow: hidden;
+    height: 250px;
+    min-height: 250px;
+    width: 100%;
+}
+
+.card3 {
+    background: white;
+    overflow: hidden;
+    height: 250px;
+    min-height: 250px;
+    width: 100%;
+}
+
+.extra-rows {
+    display: flex;
+    gap: 5px;
+    max-width: 1800px;
+    
+}
+
+.wind-rose-section {
+    width: 265px;
+}
+
+.wind-rose-card {
+    background: white;
+    height: 502px; 
+    min-height: 250px;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top-extra-row {
+    display: grid;
+    grid-template-columns: 263px 263px 1fr;  /* Match widths with cards above */
+    gap: 5px;
+}
+
+.bottom-extra-row {
+    display: grid;
+    grid-template-columns: 263px 263px 1fr;  /* Match widths with ET and UV divs above */
+    gap: 5px;
+}
+
+.extra-card {
+    background: white;
+    height: 247.5px;
+    min-height: 247.5px;
+}
+
+.extra-card-remain {
+    background: white;
+    height: 247.5px;
+    min-height: 247.5px;
+}
+
+.extra-card-wide {
+    background: white;
+    height: 247.5px;
+    min-height: 247.5px;
+}
+
+.extra-card-wide-remain {
+    background: white;
+    height: 247.5px;
+    min-height: 247.5px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1400px) {
+    .bottom-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .top-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bottom-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .live-data-container {
+        padding: 8px;
+    }
+    
+    .top-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .bottom-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .card3 {
+        grid-column: 1 / -1;
+    }
+
+    .card1, .card2, .card3 {
+        height: 250px;
+        width: 100%;
+        max-width: none;
+        min-height: 250px;
+    }
+
+    .extra-rows {
+        flex-direction: column;
+    }
+
+    .wind-rose-section {
+        width: 100%;
+    }
+
+    .top-extra-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* Two columns for UV */
+        gap: 8px;
+    }
+
+    /* LocalForecast takes full width */
+    .extra-card-remain {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .bottom-extra-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* Two columns for Current AQI and PM */
+        gap: 8px;
+    }
+
+    /* Last card in bottom extra row takes full width */
+    .extra-card-wide-remain {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    /* Common styles for mobile cards */
+    .card1, .card2, .card3,
+    .extra-card, .extra-card-wide,
+    .extra-card-remain, .extra-card-wide-remain {
+        min-height: 250px;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .card {
+        border: 0.5px solid rgba(0,0,0,0.05);
+    }
+}
+
+/* Print styles */
+@media print {
+    .live-data-container {
+        background: white;
+    }
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #eee;
+    }
+}

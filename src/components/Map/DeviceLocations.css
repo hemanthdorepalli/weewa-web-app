@@ -1,0 +1,317 @@
+/* Base container styles */
+.device-locations-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Main wrapper to divide the screen */
+.map-details-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Map container takes full width on mobile */
+.map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Device details panel as popup on mobile */
+.device-details-panel {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  background: #ffffff;
+  padding: 0;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  border-radius: 12px;
+  z-index: 1000;
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  /* background: rgba(0, 0, 0, 0.1); */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background: #1a237e;
+  transform-origin: center;
+}
+
+.close-button::before {
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  transform: rotate(-45deg);
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay background */
+.device-details-panel::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(248, 245, 245, 0.966);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.device-details-panel.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.device-details-panel.active::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.device-details {
+  text-align: left;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.device-details::-webkit-scrollbar {
+  display: none;
+}
+
+.device-details h3 {
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 40px 20px 20px;
+  color: #1a237e;
+  background: #f5f7fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.device-details p {
+  font-size: 14px;
+  color: #37474f;
+  margin: 0;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+
+.device-details p strong {
+  min-width: 110px;
+  display: inline-block;
+  color: #546e7a;
+}
+
+.device-image {
+  width: calc(100% - 40px);
+  height: 100%;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+/* Marker styles */
+.marker-pin {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: none;
+}
+
+.marker-pin:hover {
+  transform: none;
+}
+
+.marker-pin-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.marker-pin-pulse {
+  border: 2px solid;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+/* Device type colors */
+.ultrasonic-sensor .marker-pin-inner {
+  background: #ff4444;
+}
+
+.ultrasonic-sensor .marker-pin-pulse {
+  border-color: #ff4444;
+}
+
+.power-meter .marker-pin-inner {
+  background: #ff8c00;
+}
+
+.power-meter .marker-pin-pulse {
+  border-color: #ff8c00;
+}
+
+.water-meter .marker-pin-inner {
+  background: #2196f3;
+}
+
+.water-meter .marker-pin-pulse {
+  border-color: #2196f3;
+}
+
+.gateway .marker-pin-inner {
+  background: #4caf50;
+}
+
+.gateway .marker-pin-pulse {
+  border-color: #4caf50;
+}
+
+.water-sensor .marker-pin-inner {
+  background: #9c27b0;
+}
+
+.water-sensor .marker-pin-pulse {
+  border-color: #9c27b0;
+}
+
+/* Empty state styling */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
+  background: #f9f9fc;
+}
+
+.empty-state-icon {
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.empty-state-text {
+  font-size: 16px;
+  color: #455a64;
+  max-width: 200px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .device-details-panel {
+    position: static;
+    transform: none;
+    width: 30%;
+    max-width: none;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    border-radius: 0;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid #e0e0e0;
+  }
+
+  .device-details-panel::before {
+    display: none;
+  }
+
+  .device-details-panel.active {
+    transform: none;
+  }
+
+  .close-button {
+    display: none;
+  }
+
+  .map-container {
+    width: 70%;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  
+  .empty-state {
+    display: none;
+   
+  }
+}

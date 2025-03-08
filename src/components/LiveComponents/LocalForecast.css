@@ -1,0 +1,125 @@
+.forecast-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 12px;
+}
+
+.forecast-header {
+    margin-bottom: 16px;
+}
+
+.forecast-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0066cc;
+    margin-bottom: 2px;
+}
+
+.forecast-subtitle {
+    font-size: 12px;
+    font-style: italic;
+    color: #666;
+}
+
+.forecast-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: calc(100% - 60px);
+    padding: 0 20px;
+}
+
+.forecast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 15px;
+}
+
+.forecast-time {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.forecast-icon {
+    margin-bottom: 20px;
+    color: #4b5563;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.forecast-data {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.forecast-temp {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.forecast-separator {
+    color: #9ca3af;
+    margin: 0 4px;
+}
+
+.forecast-precip {
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.forecast-condition {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    .forecast-container {
+        padding: 8px;
+    }
+
+    .forecast-content {
+        padding: 0 5px;
+        height: calc(100% - 50px);
+    }
+
+    .forecast-item {
+        padding: 0 5px;
+    }
+
+    .forecast-time {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .forecast-icon {
+        margin-bottom: 10px;
+        height: 30px;
+        transform: scale(0.8);
+    }
+
+    .forecast-data {
+        margin-bottom: 5px;
+    }
+
+    .forecast-temp, .forecast-precip {
+        font-size: 13px;
+    }
+
+    .forecast-condition {
+        font-size: 11px;
+    }
+
+    .forecast-header {
+        margin-bottom: 12px;
+    }
+} 

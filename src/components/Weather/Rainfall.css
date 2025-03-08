@@ -1,0 +1,160 @@
+/* Base styles */
+.weather-container {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.controls-section {
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.controls-container {
+  padding: 0.5rem;
+  background: #fff;
+  z-index: 10;
+}
+
+.chart-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.chart-container {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+  position: relative;
+}
+
+/* Controls */
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.date-input.form-control,
+.view-type-select.form-select {
+  width: 100%;
+  max-width: 200px;
+}
+
+.view-location-btn {
+  padding: 0.5rem 1rem;
+  background: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 38px;
+  white-space: nowrap;
+}
+
+.view-location-btn:hover {
+  background: #40a9ff;
+}
+
+.view-location-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Map styles */
+.map-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.map-modal {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  background: white;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.close-map-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .weather-container {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .controls-section {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+  .chart-section {
+    height: calc(100vh - 200px);
+    min-height: 400px;
+  }
+
+  .controls-container {
+    padding: 0.5rem;
+  }
+
+  .d-flex.flex-wrap {
+    gap: 0.5rem !important;
+  }
+
+  .date-input.form-control,
+  .view-type-select.form-select {
+    max-width: 100%;
+  }
+
+  .view-location-btn {
+    width: 100%;
+    justify-content: center;
+  }
+} 
